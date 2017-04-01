@@ -1,0 +1,13 @@
+{
+  "name": "ic",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jasmine-node test"
+  },
+  "dependencies": {
+    "express": "^4.15.2",
+    "mongoose": "^4.9.2"
+  }
+}
