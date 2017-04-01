@@ -3,8 +3,8 @@ const app = express();
 
 module.exports = function () {
 	
-	const foo = require('./foo');
-	app.use('/foo', require('./routes/foo')(foo));
+	const customer = require('./customer');
+	app.use('/customer', require('./routes/customer')(customer));
 	
 	return app;
 }

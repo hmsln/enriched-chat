@@ -1,4 +1,5 @@
 const express = require('express');
+const bodyParser = require('body-parser')
 
 module.exports = function () {
 	const app = express();
@@ -10,6 +11,8 @@ module.exports = function () {
 		req.locals = {};
 		next();
 	});
+	
+	app.use(bodyParser.json());
 	
 	app.use('/rest', require('./rest')());
 	
