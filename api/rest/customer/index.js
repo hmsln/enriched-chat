@@ -2,40 +2,16 @@ const express = require('express');
 const customer = require('./model');
 
 module.exports = {
-	create: function (req, res, next) {console.log(req.body);
-		customer.create(req.body)
-		.then(function (createdCustomer) {
-			req.locals.createOp = createdCustomer;
-			next();
-		}, function (err) {
-			
-		});
+	create: function (obj) {
+		return customer.create(obj);
 	},
-	delete: function (req, res, next) {
-		customer.delete(req.params.id)
-		.then(function (deleteResponse) {
-			req.locals.deleteOp = {n: deleteResponse.result.n};
-			next();
-		}, function (err) {
-		
-		})
+	delete: function (id) {
+		return customer.delete(id);
 	},
-	read: function (req, res, next) {
-		customer.read(req.params.id)
-		.then(function (readCustomer) {
-			req.locals.readOp = readCustomer;
-			next();
-		}, function (err) {
-		
-		})
+	read: function (id) {
+		return customer.read(id);
 	},
-	update: function (req, res, next) {
-		customer.update(req.params.id, req.body)
-		.then(function (updateResponse) {
-			req.locals.updateOp = {nModified: updateResponse.nModified};
-			next();
-		}, function (err) {
-			
-		});
+	update: function (id, obj) {
+		return customer.update(id, obj);
 	}
 };
